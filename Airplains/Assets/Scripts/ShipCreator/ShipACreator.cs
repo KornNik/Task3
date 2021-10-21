@@ -3,10 +3,9 @@ using Assets.Ships;
 using Assets.Helper;
 using Assets.AssetsPath;
 
-
 namespace Assets.ShipCreator
 {
-    public class ShipACreator : IProduct
+    class ShipACreator : IProduct
     {
         public Ship Operation(string modulSymb, string weaponSymb)
         {

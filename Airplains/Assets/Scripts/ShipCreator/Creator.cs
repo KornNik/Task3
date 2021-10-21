@@ -1,7 +1,8 @@
-﻿
+﻿using Assets.Services;
+
 namespace Assets.ShipCreator
 {
-    public class Creator
+    class Creator
     {
         #region Fields
 
@@ -19,12 +20,14 @@ namespace Assets.ShipCreator
                 case "A":
                     _creatorShip = new ShipACreator();
                     if (modulSymb.Length > 2 || weaponSymb.Length > 2) { return; }
-                    _creatorShip.Operation(modulSymb, weaponSymb);
+                    var tempShipA =_creatorShip.Operation(modulSymb, weaponSymb);
+                    Services.Services.Instance.ShipServices.ships.Add(tempShipA);
                     break;
                 case "B":
                     _creatorShip = new ShipBCreator();
                     if (modulSymb.Length > 3 || weaponSymb.Length > 2) { return; }
-                    _creatorShip.Operation(modulSymb, weaponSymb);
+                    var tempShipB = _creatorShip.Operation(modulSymb, weaponSymb);
+                    Services.Services.Instance.ShipServices.ships.Add(tempShipB);
                     break;
                 default:
                     break;

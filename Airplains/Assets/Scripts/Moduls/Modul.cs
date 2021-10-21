@@ -11,7 +11,7 @@ namespace Assets.Moduls
         }
         public virtual void MultiplyStat(ref float stat, float bonus)
         {
-            stat *= bonus;
+            stat += stat * bonus;
         }
 
         #endregion

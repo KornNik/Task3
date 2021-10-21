@@ -72,11 +72,15 @@
     <Compile Include="Assets\Scripts\Controller\IInitialization.cs" />
     <Compile Include="Assets\Scripts\Controller\ShipController.cs" />
     <Compile Include="Assets\Scripts\Helper\CustomResources.cs" />
+    <Compile Include="Assets\Scripts\Helper\Timer.cs" />
     <Compile Include="Assets\Scripts\Moduls\Modul.cs" />
     <Compile Include="Assets\Scripts\Moduls\ModulA.cs" />
     <Compile Include="Assets\Scripts\Moduls\ModulB.cs" />
     <Compile Include="Assets\Scripts\Moduls\ModulC.cs" />
     <Compile Include="Assets\Scripts\Moduls\ModulD.cs" />
+    <Compile Include="Assets\Scripts\Services\Service.cs" />
+    <Compile Include="Assets\Scripts\Services\Services.cs" />
+    <Compile Include="Assets\Scripts\Services\ShipServices.cs" />
     <Compile Include="Assets\Scripts\Ship\IDamageable.cs" />
     <Compile Include="Assets\Scripts\Ship\Ship.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipA.cs" />
@@ -101,31 +105,31 @@
     <Compile Include="Assets\Scripts\Weapon\WeaponB.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponC.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/korni/OneDrive/Рабочий стол/WorkTest/Airplains/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/ETC/Programs/GitPrograms/Task3/Airplains/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/ETC/Programs/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

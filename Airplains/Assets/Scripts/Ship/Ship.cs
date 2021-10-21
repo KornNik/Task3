@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Moduls;
 using Assets.Weaponry;
+using System;
 using System.Collections;
 
 namespace Assets.Ships
@@ -8,6 +9,12 @@ namespace Assets.Ships
     public abstract class Ship : MonoBehaviour, IDamageable
     {
         #region Fields
+
+        [SerializeField] private Transform WeaponBarrel;
+
+        public Action Die;
+        public Action<float, string> HealthChanged;
+        public Action<float, string> ShieldChanged;
 
         protected float _currentHealth;
         protected float _currentShield;
@@ -17,14 +24,23 @@ namespace Assets.Ships
         protected Modul[] _moduls;
         protected Weapon[] _weapons;
 
+        private Coroutine _coroutine;
+        private bool _isDead;
+
+        #endregion
+
+        #region Properties
+
+        public bool IsDead { get { return _isDead; } }
+
         #endregion
 
 
         #region ClassLifeCycle
 
         protected virtual void Awake()
-        { 
-
+        {
+            Die += OnDie;
         }
 
         #endregion
@@ -32,22 +48,37 @@ namespace Assets.Ships
 
         #region Methods
 
-        protected virtual void Attack()
+        public virtual void Attack()
         {
             foreach(var item in _weapons)
             {
-                item.Fire(transform.position, transform.forward);
+                item.UpdateTimer();
+                item.Fire(WeaponBarrel.position, WeaponBarrel.forward);
             }
-        }
-
-        protected virtual void RegenShield()
-        {
-            _currentShield += _shipStats.ShieldRecovery;
         }
 
         public void TakeDamage(float damage)
         {
-            _currentHealth -= damage;
+            if (_isDead) return;
+            if (_currentHealth <= 0)
+            {
+                Die?.Invoke();
+                _isDead = true;
+            }
+            if (_currentShield > 0 && _currentShield > damage)
+            {
+                _currentShield -= damage;
+                ShieldChanged?.Invoke(_currentShield, this.name);
+                if (_coroutine == null)
+                {
+                    _coroutine = StartCoroutine(PassiveRegen());
+                }
+            }
+            else
+            {
+                _currentHealth -= damage;
+                HealthChanged?.Invoke(_currentHealth, this.name);
+            }
         }
 
         public virtual void AddModuls(string modulsSymb)
@@ -65,7 +96,6 @@ namespace Assets.Ships
                                 break;
                             case 'B':
                                 _moduls[i] = new ModulB(ref _shipStats.MaxShield);
-                                Debug.Log(_shipStats.MaxShield);
                                 break;
                             case 'C':
                                 _moduls[i] = new ModulC();
@@ -86,12 +116,13 @@ namespace Assets.Ships
             {
                 for (int i = 0; i < _weapons.Length; i++)
                 {
-                    if (_weapons[j] == null)
+                    if (_weapons[i] == null)
                     {
                         switch (weaponSymbs[j])
                         {
                             case 'A':
                                 _weapons[i] = new WeaponA();
+                                Debug.Log(_weapons[i].ToString());
                                 break;
                             case 'B':
                                 _weapons[i] = new WeaponB();
@@ -109,6 +140,7 @@ namespace Assets.Ships
 
         protected IEnumerator PassiveRegen()
         {
+            if (_currentShield == _shipStats.MaxShield) { _coroutine = null; }
             while (_currentShield < _shipStats.MaxShield)
             {
                 yield return new WaitForSeconds(1f);
@@ -116,6 +148,10 @@ namespace Assets.Ships
             }
         }
 
+        private void OnDie()
+        {
+            Debug.Log("Lose"+this.name);
+        }
         #endregion
     }
 }

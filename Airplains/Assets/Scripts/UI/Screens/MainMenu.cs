@@ -9,6 +9,7 @@ namespace Assets.UI
         #region Fields
 
         [SerializeField] private Button _startGameButton;
+        [SerializeField] private Button _endGameButton;
 
         #endregion
 
@@ -18,11 +19,13 @@ namespace Assets.UI
         private void OnEnable()
         {
             _startGameButton.onClick.AddListener(StartGameButtonClick);
+            _endGameButton.onClick.AddListener(EndGameButtonClick);
         }
 
         private void OnDisable()
         {
             _startGameButton.onClick.RemoveListener(StartGameButtonClick);
+            _endGameButton.onClick.RemoveListener(EndGameButtonClick);
         }
 
         #endregion
@@ -45,6 +48,10 @@ namespace Assets.UI
         private void StartGameButtonClick()
         {
             ScreenInterface.GetInstance().Execute(ScreenType.PreGameMenu);
+        }
+        private void EndGameButtonClick()
+        {
+            Application.Quit();
         }
 
         #endregion

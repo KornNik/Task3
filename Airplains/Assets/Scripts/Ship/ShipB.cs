@@ -22,7 +22,6 @@ namespace Assets.Ships
             _moduls = new Modul[3];
             _currentHealth = _shipStats.MaxHealth;
             _currentShield = _shipStats.MaxShield;
-            StartCoroutine(PassiveRegen());
         }
 
         #endregion

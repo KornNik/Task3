@@ -42,6 +42,14 @@
                 var initialization = _initializations[i];
                 initialization.Initialization();
             }
+            for (var i = 0; i < _executeControllers.Length; i++)
+            {
+                var execute = _executeControllers[i];
+                if (execute is IInitialization initialization)
+                {
+                    initialization.Initialization();
+                }
+            }
         }
 
         #endregion
